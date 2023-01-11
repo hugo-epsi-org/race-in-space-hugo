@@ -14,22 +14,18 @@ class Track():
     def __init__(self, length):
         self.length = length
         self.racers = []
-        self.winner = ""
 
     def AddSpaceShip(self, racer):
         self.racer = racer
         self.racers.append(racer)
 
     def StartRace(self):
-        fastest = 0
-        for i in range(len(self.racers)):
-            if self.racers[i].get_speed() > self.racers[fastest].get_speed():
-                fastest = i
-        self.winner = self.racers[fastest].get_name()
+        fastest = sorted(self.racers, key=lambda racer: racer.get_speed(), reverse=True)[0]
+        self.winner_stats = {"name": fastest.get_name(), 
+                             "time": round(self.length/fastest.get_speed(), 2)}
 
     def WhoWins(self):
-        return print(f'{self.winner} l''emporte')
-
+        return print(f"{self.winner_stats['name']} l'emporte avec un temps de {self.winner_stats['time']}")
 
 track1 = Track(2000)
 spaceship1 = SpaceShip("space1", 5)
