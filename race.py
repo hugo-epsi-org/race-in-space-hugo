@@ -33,7 +33,6 @@ spaceship2 = SpaceShip("space2", 6)
 spaceship3 = SpaceShip("space3", 3)
 spaceship4 = SpaceShip("space4", 1)
 spaceship5 = SpaceShip("space5", 2)
-
 track1.AddSpaceShip(spaceship1)
 track1.AddSpaceShip(spaceship2)
 track1.AddSpaceShip(spaceship3)
